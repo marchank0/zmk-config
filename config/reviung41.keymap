@@ -10,34 +10,47 @@
 #include <dt-bindings/zmk/rgb.h>
 
 / {
+
+        behaviors {
+            hm: homerow_mods {
+                compatible = "zmk,behavior-hold-tap";
+                label = "HOMEROW_MODS";
+                #binding-cells = <2>;
+                tapping-term-ms = <150>;
+                quick-tap-ms = <0>;
+                flavor = "tap-preferred";
+                bindings = <&kp>, <&kp>;
+            };
+        };
+
         keymap {
                 compatible = "zmk,keymap";
 
                 default_layer {
-// ----------------------------------------------------------------------------------
-// |  \|  |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  |   '"   |
-// | ESC  |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;: |  BKSP  |
-// |  [{  |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,< |  .> |  /? |   ]}   |
+// --------------------------------------------------------------------------------------------------------------
+// |  \|  |      Q  |     W  |      E  |      R  |  T  |   |  Y  |      U  |      I  |     O  |     P  |   `~   |
+// | ESC  |  GUI-A  | ALT-S  | CTRL-D  | SHFT-F  |  G  |   |  H  | SHFT-J  | CTRL-K  | ALT-L  | GUI-;: |   '"   |
+// |  [{  |      Z  |     X  |      C  |      V  |  B  |   |  N  |      M  |      ,< |     .> |     /? |   ]}   |
 //                        | TAB | LWR | SPACE | RSE  | CAPS |
                     bindings = <
-   &kp BACKSLASH    &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P     &kp SINGLE_QUOTE
-   &kp ESC          &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI  &kp BACKSPACE
-   &kp LEFT_BRACKET &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp SLASH &kp RIGHT_BRACKET
-                            &kp TAB  &mo 1 &kp SPACE &mo 2  &kp CAPS
+   &kp BACKSLASH    &kp Q      &kp W      &kp E       &kp R      &kp T   &kp Y &kp U       &kp I       &kp O      &kp P         &kp GRAVE
+   &kp ESC          &hm LGUI A &hm LALT S &hm LCTRL D &hm SHFT F &kp G   &kp H &hm RSHFT J &hm RCTRL K &hm RALT L &hm RGUI SEMI &kp SINGLE_QUOTE
+   &kp LEFT_BRACKET &kp Z      &kp X      &kp C       &kp V      &kp B   &kp N &kp M       &kp COMMA   &kp DOT    &kp SLASH     &kp RIGHT_BRACKET
+                                                 &kp TAB   &mo 1   &kp SPACE   &mo 2   &kp CAPS
                         >;
                 };
 
                 lower_layer {
 // -------------------------------------------------------------------------------
-// | F11 | F5  | F3  | F1  | F7  | F9  |   |  8  |  6  |  0  |  2  |  4  |  `~   |
+// | F11 | F5  | F3  | F1  | F7  | F9  |   |  8  |  6  |  0  |  2  |  4  |       |
 // |     | GUI | ALT | CTRL| SHFT|     |   |  =+ | SHFT| CTRL| ALT | GUI |  DEL  |
 // |     |     |     |     |     |     |   |     | INS |     |     |     |       |
-//                       | TAB |     | BKSP | ADJ | CAPS |
+//                       |     |     | BKSP | ADJ |     |
                         bindings = <
-   &kp F11 &kp F5   &kp F3   &kp F1    &kp F7    &kp F9      &kp N8    &kp N6    &kp N0    &kp N2   &kp N4   &kp GRAVE
+   &kp F11 &kp F5   &kp F3   &kp F1    &kp F7    &kp F9      &kp N8    &kp N6    &kp N0    &kp N2   &kp N4   &trans
    &trans  &kp LGUI &kp LALT &kp LCTRL &kp LSHFT &trans      &kp EQUAL &kp RSHFT &kp RCTRL &kp RALT &kp RGUI &kp DEL
    &trans  &trans   &trans   &trans    &trans    &trans      &trans    &kp INS   &trans    &trans   &trans   &trans
-                              &kp TAB     &trans      &kp BKSP     &mo 3       &kp CAPS
+                              &trans      &trans      &kp BKSP     &mo 3       &trans
                         >;
                 };
 
@@ -51,15 +64,15 @@
    &trans &kp N5   &kp N3   &kp N1    &kp N7    &kp N9         &kp F8 &kp F6    &kp F10   &kp F2   &kp F4   &kp F12
    &trans &kp LGUI &kp LALT &kp LCTRL &kp LSHFT &kp MINUS      &trans &kp RSHFT &kp RCTRL &kp RALT &kp RGUI &kp DEL
    &trans &trans   &trans   &trans    &kp PSCRN &trans         &trans &trans    &trans    &trans   &trans   &trans
-                            &kp TAB      &mo 3       &kp RETURN        &trans      &kp CAPS
+                            &trans       &mo 3       &kp RETURN        &trans      &trans
                         >;
                 };
 
                 adjust_layer {
-// ------------------------------------------------------------------------------------------------------------------------------------
-// | BT1    | BT2 | BT3  | BT4   |       |          |    |          | RGB SAT- | RGB SAT+ | RGB HUE- | RGB HUE+ | RGB ANI- | RGB ANI+ |
-// |        |     | HOME | PG_DN | PG_UP | END      |    |          |    LEFT  |    DOWN  |    UP    |    RIGHT |          |          |
-// | BT_CLR |     |      |       |       | RGB BRI- |    | RGB BRI+ |          |          |          |          |          |          |
+// -------------------------------------------------------------------------------------------------------------------------
+// | BT1    | BT2 | BT3  | BT4   |       |          |    | RGB SAT- | RGB SAT+ | RGB HUE- | RGB HUE+ | RGB ANI- | RGB ANI+ |
+// |        |     | HOME | PG_DN | PG_UP | END      |    |    LEFT  |    DOWN  |    UP    |    RIGHT |          |          |
+// | BT_CLR |     |      |       |       | RGB BRI- |    | RGB BRI+ |          |          |          |          | RGB TOG  |
 //                                  |      |     | BOOTLOADER |     |     |
                          bindings = <
    &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &none     &none              &rgb_ug RGB_SAD &rgb_ug RGB_SAI &rgb_ug RGB_HUD &rgb_ug RGB_HUI &rgb_ug RGB_EFR &rgb_ug RGB_EFF
