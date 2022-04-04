@@ -15,7 +15,7 @@
  * Source: https://github.com/zmkfirmware/zmk/blob/main/app/boards/shields/reviung41/boards/nice_nano.overlay
  * GitHub Issue: https://github.com/zmkfirmware/zmk/issues/885
  */
-
+#include <dt-bindings/led/led.h>
 &spi1 {
         compatible = "nordic,nrf-spim";
         status = "okay";
