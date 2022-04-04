@@ -102,7 +102,6 @@
                         bindings = <
    &kp F11  &kp F5  &kp F3  &kp F1     &kp F7     &kp F9        &none  &none      &none     &none     &none      &none
    &kp F12  &kp F4  &kp F2  &kp F10    &kp F6     &kp F8        &none  &kp RSHFT  &kp RGUI  &kp RALT  &kp RCTRL  &none
-
    &none    &none   &none   &kp PSCRN  &kp MINUS  &none         &none  &none      &none     &none     &none      &none
                  &none       &mo ADJUST_LAYER       &kp RETURN        &none      &none
                         >;
@@ -116,7 +115,7 @@
 //                                   |      |     |        |     |     |
                          bindings = <
    &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &none     &none              &rgb_ug RGB_SAD &rgb_ug RGB_SAI &rgb_ug RGB_HUD &rgb_ug RGB_HUI &rgb_ug RGB_EFR &rgb_ug RGB_EFF
-   &none        &none        &kp HOME     &kp PG_DN    &kp PG_UP &kp END            &kp LEFT        &kp DOWN        &kp UP          &kp RIGHT       &none           &none
+   &none        &kp HOME     &kp PG_DN    &kp PG_UP    &kp END   &none              &none           &kp LEFT        &kp DOWN        &kp UP          &kp RIGHT       &none
    &bt BT_CLR   &none        &none        &none        &none     &rgb_ug RGB_BRD    &rgb_ug RGB_BRI &none           &none           &none           &none           &rgb_ug RGB_TOG
                                                   &none     &none      &none       &none       &none
                         >;
