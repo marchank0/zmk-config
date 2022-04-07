@@ -68,14 +68,14 @@
 
                 default_layer {
 // --------------------------------------------------------------------------------------------------------------
-// |  \|  |       Q  |     W  |     E  |      R  |  T  |---|  Y  |      U  |     I  |     O  |      P  |   `~   |
-// | ESC  |  CTRL-A  | ALT-S  | GUI-D  | SHFT-F  |  G  |---|  H  | SHFT-J  | GUI-K  | ALT-L  | CTRL-;: |   '"   |
-// |  [{  |       Z  |     X  |     C  |      V  |  B  |---|  N  |      M  |     ,< |     .> |      /? |   ]}   |
+// |  \|  |       Q  |     W  |     E  |      R  |  B  |---|  Y  |      U  |     I  |     O  |      P  |   `~   |
+// | ESC  |  CTRL-A  | ALT-S  | GUI-D  | SHFT-F  |  T  |---|  M  | SHFT-J  | GUI-K  | ALT-L  | CTRL-;: |   '"   |
+// |  [{  |       Z  |     X  |     C  |      G  |  V  |---|  N  |      H  |     ,< |     .> |      /? |   ]}   |
 //                                       | TAB | LWR | SPACE | RSE  | CAPS |
                     bindings = <
-   &kp BACKSLASH    &kp Q       &kp W      &kp E      &kp R       &kp T     &kp Y &kp U       &kp I      &kp O      &kp P          &kp GRAVE
-   &kp ESC          &hm LCTRL A &hm LALT S &hm LGUI D &hm LSHFT F &kp G     &kp H &hm RSHFT J &hm RGUI K &hm RALT L &hm RCTRL SEMI &kp SINGLE_QUOTE
-   &kp LEFT_BRACKET &kp Z       &kp X      &kp C      &kp V       &kp B     &kp N &kp M       &kp COMMA  &kp DOT    &kp SLASH      &kp RIGHT_BRACKET
+   &kp BACKSLASH    &kp Q       &kp W      &kp E      &kp R       &kp B     &kp Y &kp U       &kp I      &kp O      &kp P          &kp GRAVE
+   &kp ESC          &hm LCTRL A &hm LALT S &hm LGUI D &hm LSHFT F &kp T     &kp M &hm RSHFT J &hm RGUI K &hm RALT L &hm RCTRL SEMI &kp SINGLE_QUOTE
+   &kp LEFT_BRACKET &kp Z       &kp X      &kp C      &kp G       &kp V     &kp N &kp H       &kp COMMA  &kp DOT    &kp SLASH      &kp RIGHT_BRACKET
                                          &kp TAB   &mo LOWER_LAYER   &kp SPACE   &mo RAISE_LAYER   &kp CAPS
                         >;
                 };
